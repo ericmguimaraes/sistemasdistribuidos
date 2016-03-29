@@ -1,0 +1,29 @@
+package main;
+import java.util.HashMap;
+
+public class AlunosDB implements RMInterface {
+
+	HashMap<Integer, Aluno> alunos;
+	
+	int ultimaMatricula;
+	
+	public AlunosDB(){
+		alunos = new HashMap<>();
+		ultimaMatricula = -1;
+	}
+	
+	public int add(Aluno aluno){
+		ultimaMatricula++;
+		alunos.put(ultimaMatricula, aluno);
+		return ultimaMatricula;
+	}
+	
+	public Aluno get(int matricula){
+		return alunos.get(matricula);
+	}
+	
+	public Aluno del(int matricula){
+		return alunos.remove(matricula);
+	}
+	
+}
